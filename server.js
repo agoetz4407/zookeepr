@@ -3,6 +3,9 @@ const app = express();
 const PORT = process.env.PORT || 3001
 const {animals} = require('./data/animals.json')
 
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+
 app.listen(PORT, () => {
     console.log(`API server listening at ${PORT}`)
 })
@@ -54,4 +57,9 @@ app.get('/api/animals/:id', (req, res) => {
     } else {
         res.sendStatus(404)
     }
+})
+
+app.post('/api/animals', (req, res) => {
+    console.log(req.body)
+    res.json(req.body)
 })
