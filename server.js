@@ -1,10 +1,10 @@
 const express = require('express');
-const res = require('express/lib/response');
 const app = express();
+const PORT = process.env.PORT || 3001
 const {animals} = require('./data/animals.json')
 
-app.listen(3001, () => {
-    console.log('Server listening at http://localhost:3001')
+app.listen(PORT, () => {
+    console.log(`API server listening at ${PORT}`)
 })
 
 function filterByQuery(query, animalsArray) {
