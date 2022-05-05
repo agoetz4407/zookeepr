@@ -118,6 +118,16 @@
         "goofy"
       ],
       "id": "11"
+    },
+    {
+      "name": "Daryl",
+      "species": "dingo",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry",
+        "zany"
+      ],
+      "id": "12"
     }
   ]
 }
