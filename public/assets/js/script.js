@@ -39,11 +39,13 @@ const handleAnimalFormSubmit = event => {
     if (response.ok) {
       return response.json()
     }
-    alert('Error' + response.statusText)
+    alert('Error: ' + response.statusText)
   })
   .then(postResponse => {
     console.log(postResponse)
-    alert('Thank you for adding an animal!')
+    if (postResponse){
+      alert('Thank you for adding an animal!')
+    }
   })
 };
 
@@ -69,12 +71,13 @@ const handleZookeeperFormSubmit = event => {
     if (response.ok) {
       return response.json()
     }
-    alert('Error' + response.statusText)
+    alert('Error: ' + response.statusText)
   })
   .then(postResponse => {
     console.log(postResponse)
-    alert('Thank you for adding a zookeeper!')
-  })
+    if (postResponse){
+      alert('Thank you for adding a zookeeper!')
+    }  })
 }
 
 $animalForm.addEventListener('submit', handleAnimalFormSubmit);
