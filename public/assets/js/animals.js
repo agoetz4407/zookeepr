@@ -26,7 +26,13 @@ const getAnimals = (formData = {}) => {
   let queryUrl = '/api/animals?';
 
   Object.entries(formData).forEach(([key, value]) => {
-    queryUrl += `${key}=${value}&`;
+    if (Array.isArray(value)) {
+      value.forEach(value => {
+        queryUrl += `${key}=${value}&`
+      })
+    } else {
+      queryUrl += `${key}=${value}&`;
+    }
   });
 
   console.log(queryUrl);
@@ -60,13 +66,13 @@ const handleGetAnimalsSubmit = event => {
   }
 
   const personalityTraitArr = [];
-  const selectedTraits = $animalForm.querySelector('[name="personality"').selectedOptions;
+  const selectedTraits = $animalForm.querySelector('[name="personality"]').selectedOptions;
 
   for (let i = 0; i < selectedTraits.length; i += 1) {
     personalityTraitArr.push(selectedTraits[i].value);
   }
 
-  const personalityTraits = personalityTraitArr.join(',');
+  const personalityTraits = personalityTraitArr
 
   const animalObject = { diet, personalityTraits };
 
